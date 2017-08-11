@@ -1,0 +1,20 @@
+<% if user_signed_in? %>
+
+  <%= render 'pages/user_feed' %>
+
+<% elsif admin_signed_in? %>
+
+  <%= render 'pages/admin_dash' %>
+
+<% elsif investor_signed_in? %>
+
+  <%= render 'pages/investor_feed' %>
+
+<% else %>
+
+<h1> You're not signed in </h1>
+<%= link_to "User Sign in", new_user_session_path %>
+<%= link_to "Investor Sign in", new_investor_session_path %>
+<%= link_to "Admin Sign in", new_admin_session_path %>
+
+<% end %>

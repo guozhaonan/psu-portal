@@ -1,0 +1,58 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :post_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tagline %>
+    <%= form.text_field :tagline, id: :post_tagline %>
+  </div>
+
+  <div class="field">
+    <%= form.label :embed_link %>
+    <%= form.text_area :embed_field, id: :post_embed_field %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url, id: :post_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :post_description, :value =>
+"### What are we?
+
+Give us a detailed idea of what your company does.
+
+### Key Metrics
+
+Lorem ipsum
+
+### What is your competition?
+
+Lorem ipsum something something something"
+    %>
+  </div>
+
+<!--<div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :post_description %>
+    </div>-->
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
